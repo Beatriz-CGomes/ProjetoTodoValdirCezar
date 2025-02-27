@@ -21,9 +21,21 @@ public class TodoService {
 		return objOptional.orElse(null);
 	}
 
-	// FINDALL
+	// FINDALLOPEN
 	public List<Todo> findAllOpen() {
 		List<Todo> list = repository.findAllOpen();
+		return list;
+	}
+
+	// FINDALLCLOSE
+	public List<Todo> findAllClose() {
+		List<Todo> list = repository.findAllClose();
+		return list;
+	}
+
+	// FINDALL
+	public List<Todo> findAll() {
+		List<Todo> list = repository.findAll();
 		return list;
 	}
 }

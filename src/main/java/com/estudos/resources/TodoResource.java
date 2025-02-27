@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +27,24 @@ public class TodoResource {
 		return ResponseEntity.ok().body(objOptional);
 	}
 
-	// FINDALL
+	// FINDALLOPEN
 	@GetMapping(value = "/open")
-	public ResponseEntity<List<Todo>> findAll() {
+	public ResponseEntity<List<Todo>> findAllOpen() {
 		List<Todo> list = service.findAllOpen();
+		return ResponseEntity.ok().body(list);
+	}
+
+	// FINDALLCLOSE
+	@GetMapping(value = "/close")
+	public ResponseEntity<List<Todo>> findAllClose() {
+		List<Todo> list = service.findAllClose();
+		return ResponseEntity.ok().body(list);
+	}
+
+	// FINALL
+	@GetMapping
+	public ResponseEntity<List<Todo>> findAll() {
+		List<Todo> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 
