@@ -38,4 +38,10 @@ public class TodoService {
 		List<Todo> list = repository.findAll();
 		return list;
 	}
+
+	// POST
+	public Todo post(Todo todo) {
+		todo.setId(null);
+		return repository.save(todo);
+	}
 }
