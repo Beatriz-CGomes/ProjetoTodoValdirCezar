@@ -51,4 +51,14 @@ public class TodoService {
 	public void delete(Integer id) {
 		repository.deleteById(id);
 	}
+
+	// PUT
+	public Todo put(Integer id, Todo todo) {
+		Todo todoNew = findById(id);
+		todoNew.setTitulo(todo.getTitulo());
+		todoNew.setDescricao(todo.getDescricao());
+		todoNew.setDataParaFinalizar(todo.getDataParaFinalizar());
+		todoNew.setFinalizado(todo.getFinalizado());
+		return repository.save(todoNew);
+	}
 }
